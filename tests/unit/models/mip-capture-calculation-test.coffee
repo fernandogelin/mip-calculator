@@ -55,7 +55,7 @@ test 'probe concentration is properly calculated', (assert) ->
     assert.equal probeConcentration, 0.5
     
 test 'serial dilutions are properly calculated', (assert) ->
-  expect 16
+  expect 19
   store = @store()
   Ember.run ->
     record1 = store.createRecord 'mip-capture-calculation'
@@ -64,23 +64,30 @@ test 'serial dilutions are properly calculated', (assert) ->
     serialDilutions = record1.get 'serial_dilutions'
     assert.equal serialDilutions.length, 3
     # dilution step 1
+    record1.set 'dilution', 1
     assert.equal serialDilutions[0].step, 1
     assert.equal serialDilutions[0].amount, 1
     assert.equal serialDilutions[0].dilution_from_previous, null
     assert.equal serialDilutions[0].probe_concentration, 0.25
     assert.equal serialDilutions[0].mips_volume_required, 0.0001695024077046549
+    assert.equal record1.get('serial_dilution.mips_volume_required'), 0.0001695024077046549
     # dilution step 2
+    record1.set 'dilution', 5
     assert.equal serialDilutions[1].step, 2
     assert.equal serialDilutions[1].amount, 5
     assert.equal serialDilutions[1].dilution_from_previous, 5
     assert.equal serialDilutions[1].probe_concentration, 0.05
     assert.equal serialDilutions[1].mips_volume_required, 0.0008475120385232744
+    assert.equal record1.get('serial_dilution.mips_volume_required'), 0.0008475120385232744
     # dilution step 3
+    record1.set 'dilution', 250
     assert.equal serialDilutions[2].step, 3
     assert.equal serialDilutions[2].amount, 250
     assert.equal serialDilutions[2].dilution_from_previous, 50
     assert.equal serialDilutions[2].probe_concentration, 0.001
     assert.equal serialDilutions[2].mips_volume_required, 0.04237560192616372
+    assert.equal record1.get('serial_dilution.mips_volume_required'), 0.04237560192616372
+    
     
 test 'phosphorylation reaction volumes are properly calculated', (assert) ->
   expect 8

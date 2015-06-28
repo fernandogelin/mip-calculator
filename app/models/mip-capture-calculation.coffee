@@ -44,6 +44,10 @@ MipCaptureCalculation = DS.Model.extend
       # µL
       mips_volume_required: @get('mips_amount_required') /
          (@get('probe_concentration') / amount)
+  serial_dilution: Ember.computed 'dilution', 'serial_dilutions', ->
+    dilution = @get 'dilution'
+    @get('serial_dilutions').findBy 'amount', dilution
+  
 
   # µL
   phosphorylation_t4_buffer_volume: Ember.computed 'phosphorylation_reaction_volume', ->

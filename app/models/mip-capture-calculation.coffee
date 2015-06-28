@@ -44,6 +44,22 @@ MipCaptureCalculation = DS.Model.extend
       # µL
       mips_volume_required: @get('mips_amount_required') /
          (@get('probe_concentration') / amount)
+
+  # µL
+  phosphorylation_t4_buffer_volume: Ember.computed 'phosphorylation_reaction_volume', ->
+    Math.round(@get('phosphorylation_reaction_volume') * 0.1)
+  phosphorylation_t4_pnk_volume: Ember.computed 'phosphorylation_reaction_volume', ->
+    Math.round(@get('phosphorylation_reaction_volume') * 0.07)
+  phosphorylation_mips_pool_volume: Ember.computed 'mip_count', 'mip_volume', ->
+    @get('mip_count') *
+      @get('mip_volume')
+  phosphorylation_water_volume: Ember.computed 'phosphorylation_reaction_volume', 'phosphorylation_t4_buffer_volume', 'phosphorylation_t4_pnk_volume', 'phosphorylation_mips_pool_volume', ->
+    volume = @get('phosphorylation_reaction_volume') -
+      @get('phosphorylation_t4_buffer_volume') -
+      @get('phosphorylation_t4_pnk_volume') -
+      @get('phosphorylation_mips_pool_volume')
+    Math.round(volume * 100) / 100
+      
   
 
 `export default MipCaptureCalculation`

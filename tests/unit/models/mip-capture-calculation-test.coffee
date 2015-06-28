@@ -82,4 +82,32 @@ test 'serial dilutions are properly calculated', (assert) ->
     assert.equal serialDilutions[2].probe_concentration, 0.001
     assert.equal serialDilutions[2].mips_volume_required, 0.04237560192616372
     
+test 'phosphorylation reaction volumes are properly calculated', (assert) ->
+  expect 8
+  store = @store()
+  Ember.run -> 
+    record1 = store.createRecord 'mip-capture-calculation'
+    record1.set 'mip_count', 890
+    record1.set 'mip_volume', 0.18
+    record1.set 'phosphorylation_reaction_volume', 200
+    assert.equal record1.get('phosphorylation_t4_buffer_volume'), 20
+    assert.equal record1.get('phosphorylation_t4_pnk_volume'), 14
+    assert.equal record1.get('phosphorylation_mips_pool_volume'), 160.2
+    assert.equal record1.get('phosphorylation_water_volume'), 5.8
+    
+    record1.set 'phosphorylation_reaction_volume', 100
+    record1.set 'mip_count', 1000
+    record1.set 'mip_volume', 0.5
+    assert.equal record1.get('phosphorylation_t4_buffer_volume'), 10
+    assert.equal record1.get('phosphorylation_t4_pnk_volume'), 7
+    assert.equal record1.get('phosphorylation_mips_pool_volume'), 500
+    assert.equal record1.get('phosphorylation_water_volume'), -417
+    
+    
+    
+  
+    
+    
+    
+  
 

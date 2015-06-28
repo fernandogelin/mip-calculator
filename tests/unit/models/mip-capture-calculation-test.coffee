@@ -37,7 +37,7 @@ test 'MIPs required is properly calculated', (assert) ->
     assert.equal mipsRequired, 0.000008475120385232745
     
 test 'probe concentration is properly calculated', (assert) ->
-  expect 1
+  expect 2
   store = @store()
   Ember.run ->
     record1 = store.createRecord 'mip-capture-calculation'
@@ -46,6 +46,13 @@ test 'probe concentration is properly calculated', (assert) ->
     record1.set 'phosphorylation_reaction_volume', 200
     probeConcentration = record1.get 'probe_concentration'
     assert.equal probeConcentration, 0.0045
+    
+    record2 = store.createRecord 'mip-capture-calculation'
+    record2.set 'mip_concentration', 100
+    record2.set 'mip_volume', 0.5
+    record2.set 'phosphorylation_reaction_volume', 100
+    probeConcentration = record2.get 'probe_concentration'
+    assert.equal probeConcentration, 0.5
     
     
 

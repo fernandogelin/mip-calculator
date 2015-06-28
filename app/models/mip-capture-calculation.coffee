@@ -63,6 +63,17 @@ MipCaptureCalculation = DS.Model.extend
       @get('phosphorylation_t4_pnk_volume') -
       @get('phosphorylation_mips_pool_volume')
     Math.round(volume * 100) / 100
+    
+  #µL
+   mip_capture_ampligase_buffer: 2.5
+   mip_capture_dntps: 0.032
+   mip_capture_klentaq: 0.32
+   mip_capture_ampligase: 0.01
+   mip_capture_sample_dna: Ember.computed 'dna_sample_concentration', 'dna_amount_per_reaction', ->
+     @get('dna_amount_per_reaction') / @get('dna_sample_concentration')
+  mip_capture_master_mix: Ember.computed 'mip_capture_sample_dna', ->
+    25 - @get('mip_capture_sample_dna')
+   
       
   
 

@@ -110,6 +110,19 @@ test 'phosphorylation reaction volumes are properly calculated', (assert) ->
     assert.equal record1.get('phosphorylation_mips_pool_volume'), 500
     assert.equal record1.get('phosphorylation_water_volume'), -417
     
+test 'mip capture reaction volumes are properly calculated', (assert) ->
+  expect 4
+  store = @store()
+  Ember.run ->
+    record1 = store.createRecord 'mip-capture-calculation'
+    assert.equal record1.get('mip_capture_sample_dna'), 0.5
+    assert.equal record1.get('mip_capture_master_mix'), 24.5
+    
+    record1.set 'dna_sample_concentration', 100
+    record1.set 'dna_amount_per_reaction', 75
+    assert.equal record1.get('mip_capture_sample_dna'), 0.75
+    assert.equal record1.get('mip_capture_master_mix'), 24.25
+    
     
     
   

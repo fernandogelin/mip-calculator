@@ -23,8 +23,8 @@ MipCaptureCalculation = DS.Model.extend
       @get('dna_amount_per_ng') * 
       @get('mip_copy_count_per_genome')
       
-  #pmol
-  mips_required: Ember.computed 'mip_copy_count_required', -> 
+  # pmol
+  mips_amount_required: Ember.computed 'mip_copy_count_required', -> 
     @get('mip_copy_count_required') /
       (6.23 * Math.pow(10, 11))
       
@@ -32,6 +32,18 @@ MipCaptureCalculation = DS.Model.extend
   probe_concentration: Ember.computed 'mip_concentration', 'phosphorylation_reaction_volume', 'mip_volume', -> 
     (@get('mip_concentration') * @get('mip_volume')) /
       @get('phosphorylation_reaction_volume')
+      
+  dilution: DS.attr 'number', defaultValue: 250
+  serial_dilutions: Ember.computed 'probe_concentration', 'mips_amount_required', ->
+    dilutions = [1, 5, 250]
+    for amount, i in dilutions
+      step: i + 1
+      amount: amount
+      dilution_from_previous: (amount / dilutions[i - 1]) if dilutions[i - 1]
+      probe_concentration: @get('probe_concentration') / amount
+      # µL
+      mips_volume_required: @get('mips_amount_required') /
+         (@get('probe_concentration') / amount)
   
 
 `export default MipCaptureCalculation`

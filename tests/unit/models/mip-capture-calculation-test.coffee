@@ -160,6 +160,26 @@ test 'mip capture master mix volume is proberly calculated', (assert) ->
     assert.equal record1.get('mip_capture_mix_ampligase'), 1.050000
     assert.equal record1.get('mip_capture_mix_water'), 2265.8055
     
+test 'exonuclease treatment mix is properly calculated', (assert) ->
+  expect 8
+  store = @store()
+  Ember.run ->
+    record1 = store.createRecord 'mip-capture-calculation'
+    record1.set 'sample_count', 16
+    assert.equal record1.get('exo_treatment_mix_exo1'), 10.5
+    assert.equal record1.get('exo_treatment_mix_exo3'), 10.5
+    assert.equal record1.get('exo_treatment_mix_ampligase_buffer'), 4.2
+    assert.equal record1.get('exo_treatment_mix_water'), 16.8
+    
+    record1.set 'sample_count', 100
+    assert.equal record1.get('exo_treatment_mix_exo1'), 52.5
+    assert.equal record1.get('exo_treatment_mix_exo3'), 52.5
+    assert.equal record1.get('exo_treatment_mix_ampligase_buffer'), 21
+    assert.equal record1.get('exo_treatment_mix_water'), 84
+    
+    
+    
+    
     
   
     

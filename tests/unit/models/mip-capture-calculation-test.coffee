@@ -111,18 +111,54 @@ test 'phosphorylation reaction volumes are properly calculated', (assert) ->
     assert.equal record1.get('phosphorylation_water_volume'), -417
     
 test 'mip capture reaction volumes are properly calculated', (assert) ->
-  expect 4
+  expect 8
   store = @store()
   Ember.run ->
     record1 = store.createRecord 'mip-capture-calculation'
-    assert.equal record1.get('mip_capture_sample_dna'), 0.5
-    assert.equal record1.get('mip_capture_master_mix'), 24.5
+    record1.set 'mip_volume', 0.5
+    record1.set 'phosphorylation_reaction_volume', 200
     
+    assert.equal record1.get('mip_capture_sample_dna'), 0.5
+    assert.equal record1.get('mip_capture_reagents'), 24.5
+    assert.equal record1.get('serial_dilution.mips_volume_required'), 0.04237560192616372
+    assert.equal record1.get('mip_capture_water'), 21.5956
+    
+    record1.set 'mip_volume', 0.18
+    record1.set 'phosphorylation_reaction_volume', 100
     record1.set 'dna_sample_concentration', 100
     record1.set 'dna_amount_per_reaction', 75
-    assert.equal record1.get('mip_capture_sample_dna'), 0.75
-    assert.equal record1.get('mip_capture_master_mix'), 24.25
     
+    assert.equal record1.get('mip_capture_sample_dna'), 0.75
+    assert.equal record1.get('mip_capture_reagents'), 24.25
+    assert.equal record1.get('serial_dilution.mips_volume_required'), 0.044141252006420544
+    assert.equal record1.get('mip_capture_water'), 21.3439
+    
+    
+    
+test 'mip capture master mix volume is proberly calculated', (assert) ->
+  expect 10
+  store = @store()
+  Ember.run ->
+    record1 = store.createRecord 'mip-capture-calculation'
+    record1.set 'sample_count', 16
+    record1.set 'mip_volume', 0.5
+    record1.set 'phosphorylation_reaction_volume', 200
+    
+    assert.equal record1.get('mip_capture_mix_ampligase_buffer'), 52.5
+    assert.equal record1.get('mip_capture_mix_dntps'), 0.672
+    assert.equal record1.get('mip_capture_mix_klentaq'), 6.72
+    assert.equal record1.get('mip_capture_mix_ampligase'), 0.21
+    assert.equal record1.get('mip_capture_mix_water'), 453.5076
+    
+    record1.set 'sample_count', 100
+    record1.set 'mip_volume', 0.18
+    record1.set 'phosphorylation_reaction_volume', 100
+    
+    assert.equal record1.get('mip_capture_mix_ampligase_buffer'), 262.5
+    assert.equal record1.get('mip_capture_mix_dntps'), 3.360000
+    assert.equal record1.get('mip_capture_mix_klentaq'), 33.600000
+    assert.equal record1.get('mip_capture_mix_ampligase'), 1.050000
+    assert.equal record1.get('mip_capture_mix_water'), 2265.8055
     
     
   

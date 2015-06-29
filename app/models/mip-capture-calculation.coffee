@@ -71,9 +71,28 @@ MipCaptureCalculation = DS.Model.extend
    mip_capture_ampligase: 0.01
    mip_capture_sample_dna: Ember.computed 'dna_sample_concentration', 'dna_amount_per_reaction', ->
      @get('dna_amount_per_reaction') / @get('dna_sample_concentration')
-  mip_capture_master_mix: Ember.computed 'mip_capture_sample_dna', ->
+   mip_capture_reagents: Ember.computed 'mip_capture_sample_dna', ->
     25 - @get('mip_capture_sample_dna')
-   
+   mip_capture_water: Ember.computed 'mip_capture_ampligase_buffer', 'mip_capture_dntps', 'mip_capture_klentaq', 'mip_capture_ampligase', 'mip_capture_reagents', 'serial_dilution.mips_volume_required', ->
+     volume = @get('mip_capture_reagents') -
+       @get('mip_capture_ampligase_buffer') -
+       @get('mip_capture_dntps') - 
+       @get('mip_capture_klentaq') - 
+       @get('mip_capture_ampligase') -
+       @get('serial_dilution.mips_volume_required')
+     Math.round(volume * 10000) / 10000
+    
+  # mip capture master mix µL
+  mip_capture_mix_ampligase_buffer: Ember.computed 'mip_capture_ampligase_buffer', 'sample_count', ->
+    @get('mip_capture_ampligase_buffer') * (@get('sample_count') + 5)
+  mip_capture_mix_dntps: Ember.computed 'mip_capture_dntps', 'sample_count', ->
+    @get('mip_capture_dntps') * (@get('sample_count') + 5)
+  mip_capture_mix_klentaq: Ember.computed 'mip_capture_klentaq', 'sample_count', ->
+    @get('mip_capture_klentaq') * (@get('sample_count') + 5)
+  mip_capture_mix_ampligase: Ember.computed 'mip_capture_ampligase', 'sample_count', ->
+    @get('mip_capture_ampligase') * (@get('sample_count') + 5)
+  mip_capture_mix_water: Ember.computed 'mip_capture_water', 'sample_count', ->
+    @get('mip_capture_water') * (@get('sample_count') + 5)
       
   
 

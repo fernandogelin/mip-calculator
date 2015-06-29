@@ -177,9 +177,35 @@ test 'exonuclease treatment mix is properly calculated', (assert) ->
     assert.equal record1.get('exo_treatment_mix_ampligase_buffer'), 21
     assert.equal record1.get('exo_treatment_mix_water'), 84
     
+test 'pcr reaction mix is properly calculated', (assert) ->
+  expect 6
+  store = @store()
+  Ember.run ->
+    record1 = store.createRecord 'mip-capture-calculation'
+    record1.set 'sample_count', 16
+    assert.equal record1.get('pcr_barcoding_mix_iproof'), 262.5
+    assert.equal record1.get('pcr_barcoding_mix_fprimer'), 2.625
+    assert.equal record1.get('pcr_barcoding_mix_water'), 128.625
+
+    record1.set 'sample_count', 100
+    assert.equal record1.get('pcr_barcoding_mix_iproof'), 1312.500
+    assert.equal record1.get('pcr_barcoding_mix_fprimer'), 13.125
+    assert.equal record1.get('pcr_barcoding_mix_water'), 643.125    
     
     
+test 'library dilution is properly calculated', (assert) ->
+  expect 5
+  store = @store()
+  Ember.run ->
+    record1 = store.createRecord 'mip-capture-calculation'
+    record1.set 'qubit_read', 0.734
+    assert.equal record1.get('library_concentration_required_converted'), 0.3432
+    assert.equal record1.get('dilution_library_volume'), 7.01
+    assert.equal record1.get('dilution_water_volume'), 7.99
     
+    record1.set 'qubit_read', 2
+    assert.equal record1.get('dilution_library_volume'), 2.57
+    assert.equal record1.get('dilution_water_volume'), 12.43
     
   
     

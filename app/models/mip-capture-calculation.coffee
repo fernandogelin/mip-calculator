@@ -101,14 +101,14 @@ MipCaptureCalculation = DS.Model.extend
   exo_treatment_ampligase_buffer: 0.2
   exo_treatment_water: 0.8
 
-  exo_treatment_mix_exo1: Ember.computed 'exo_treatment_exo1', 'sample_count', ->
-    @get('exo_treatment_exo1') * (@get('sample_count') + 5)
-  exo_treatment_mix_exo3: Ember.computed 'exo_treatment_exo3', 'sample_count', ->
-    @get('exo_treatment_exo3') * (@get('sample_count') + 5)
-  exo_treatment_mix_ampligase_buffer: Ember.computed 'exo_treatment_ampligase_buffer', 'sample_count', ->
-    @get('exo_treatment_ampligase_buffer') * (@get('sample_count') + 5)
-  exo_treatment_mix_water: Ember.computed 'exo_treatment_water', 'sample_count', ->
-    @get('exo_treatment_water') * (@get('sample_count') + 5)
+  exo_treatment_mix_exo1: Ember.computed 'exo_treatment_exo1', 'sample_count', 'master_mix_extra', ->
+    @get('exo_treatment_exo1') * (@get('sample_count') + @get('master_mix_extra'))
+  exo_treatment_mix_exo3: Ember.computed 'exo_treatment_exo3', 'sample_count', 'master_mix_extra', ->
+    @get('exo_treatment_exo3') * (@get('sample_count') + @get('master_mix_extra'))
+  exo_treatment_mix_ampligase_buffer: Ember.computed 'exo_treatment_ampligase_buffer', 'sample_count', 'master_mix_extra', ->
+    @get('exo_treatment_ampligase_buffer') * (@get('sample_count') + @get('master_mix_extra'))
+  exo_treatment_mix_water: Ember.computed 'exo_treatment_water', 'sample_count', 'master_mix_extra', ->
+    @get('exo_treatment_water') * (@get('sample_count') + @get('master_mix_extra'))
 
   # pcr reagents, µL
   pcr_barcoding_iproof: 12.5
@@ -119,12 +119,12 @@ MipCaptureCalculation = DS.Model.extend
   pcr_barcoding_rprimer: 1.25
   pcr_barcoding_sample: 5
 
-  pcr_barcoding_mix_iproof: Ember.computed 'pcr_barcoding_iproof', 'sample_count', ->
-    @get('pcr_barcoding_iproof') * (@get('sample_count') + 5)
-  pcr_barcoding_mix_fprimer: Ember.computed 'pcr_barcoding_fprimer', 'sample_count', ->
-    @get('pcr_barcoding_fprimer') * (@get('sample_count') + 5)
-  pcr_barcoding_mix_water: Ember.computed 'pcr_barcoding_water', 'sample_count', ->
-    @get('pcr_barcoding_water') * (@get('sample_count') + 5)
+  pcr_barcoding_mix_iproof: Ember.computed 'pcr_barcoding_iproof', 'sample_count', 'master_mix_extra', ->
+    @get('pcr_barcoding_iproof') * (@get('sample_count') + @get('master_mix_extra'))
+  pcr_barcoding_mix_fprimer: Ember.computed 'pcr_barcoding_fprimer', 'sample_count', 'master_mix_extra', ->
+    @get('pcr_barcoding_fprimer') * (@get('sample_count') + @get('master_mix_extra'))
+  pcr_barcoding_mix_water: Ember.computed 'pcr_barcoding_water', 'sample_count', 'master_mix_extra', ->
+    @get('pcr_barcoding_water') * (@get('sample_count') + @get('master_mix_extra'))
 
   #library prepareation
   pcr_product_volume: DS.attr 'number', defaultValue: 10 #µL
@@ -154,8 +154,7 @@ MipCaptureCalculation = DS.Model.extend
     Math.round(volume * 100) / 100
 
   dilution_water_volume: Ember.computed 'library_volume_required', 'dilution_library_volume', ->
-    volume = @get('library_volume_required') -
-      @get('dilution_library_volume')
+    volume = @get('library_volume_required') - @get('dilution_library_volume')
     Math.round(volume * 100) / 100
 
 `export default MipCaptureCalculation`

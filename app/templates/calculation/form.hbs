@@ -1,1 +1,51 @@
-{{outlet}}
+<form>
+  <div class="form-group">
+    <label for="name">Name</label>
+    {{input
+      value=name
+      id='name'
+      class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label for="mip_concentration">MIP concentration (µM)</label>
+    {{input
+      type='number'
+      step=1
+      value=mip_concentration
+      id='mip_concentration'
+      class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label for="dna_sample_concentration">DNA sample concentration (ng/µL)</label>
+    {{input
+      type='number'
+      step=1
+      value=dna_sample_concentration
+      id='dna_sample_concentration'
+      class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label for="sample_count">Sample count</label>
+    {{input
+      type='number'
+      step=1
+      value=sample_count
+      id='sample_count'
+      class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label for="phosphorylation_reaction_volume">Phosphorylation reaction volume (µL)</label>
+    {{input
+      type='number'
+      step=1
+      value=phosphorylation_reaction_volume
+      id='phosphorylation_reaction_volume'
+      class='form-control'}}
+  </div>
+
+  <button type="submit" class="btn btn-default">Submit</button>
+</form>

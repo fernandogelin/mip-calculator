@@ -108,5 +108,16 @@
       class='form-control'}}
   </div>
 
+  <div class="form-group">
+    <label for="dilution">Dilution</label>
+    {{view Ember.Select
+      content=serial_dilutions
+      optionLabelPath='content.mips_volume_required'
+      optionValuePath='content.amount'
+      value=dilution
+      id='dilution'
+      class='form-control'}}
+  </div>
+
   <button type="submit" class="btn btn-default">Submit</button>
 </form>

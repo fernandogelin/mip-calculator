@@ -9,7 +9,7 @@ MipCaptureCalculation = DS.Model.extend
 
   sample_count: DS.attr 'number'
 
-  phosphorylation_reaction_volume: DS.attr 'number' #µL
+  phosphorylation_reaction_volume: DS.attr 'number', defaultValue: 100 #µL
 
   mip_count: DS.attr 'number'
   mip_volume: DS.attr 'number' #µL

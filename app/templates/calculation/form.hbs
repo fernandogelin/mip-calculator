@@ -39,9 +39,10 @@
 
   <div class="form-group">
     <label for="phosphorylation_reaction_volume">Phosphorylation reaction volume (µL)</label>
-    {{input
-      type='number'
-      step=1
+    {{view Ember.Select
+      content=phosphorylation_reaction_volumes
+      optionLabelPath='content.name'
+      optionValuePath='content.value'
       value=phosphorylation_reaction_volume
       id='phosphorylation_reaction_volume'
       class='form-control'}}

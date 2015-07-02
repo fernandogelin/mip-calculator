@@ -68,12 +68,42 @@
   </div>
 
   <div class="form-group">
-    <label for="dna_amount_per_reaction">DNA amount per reaction (µL)</label>
+    <label for="dna_amount_per_reaction">DNA amount per reaction (ng)</label>
     {{input
       type='number'
       step=1
       value=dna_amount_per_reaction
       id='dna_amount_per_reaction'
+      class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label for="mip_copy_count_required">MIP copy count required</label>
+    {{input
+      type='number'
+      disabled=true
+      value=mip_copy_count_required
+      id='mip_copy_count_required'
+      class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label for="mips_amount_required">MIP amount required (pmol)</label>
+    {{input
+      type='number'
+      disabled=true
+      value=mips_amount_required
+      id='mips_amount_required'
+      class='form-control'}}
+  </div>
+
+  <div class="form-group">
+    <label for="probe_concentration">Probe concentrarion (µM)</label>
+    {{input
+      type='number'
+      disabled=true
+      value=probe_concentration
+      id='probe_concentration'
       class='form-control'}}
   </div>
 

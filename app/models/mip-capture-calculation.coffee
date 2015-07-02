@@ -4,15 +4,15 @@ MipCaptureCalculation = DS.Model.extend
   name: DS.attr 'string'
   date_created: DS.attr 'date', defaultValue: -> new Date
 
-  mip_concentration: DS.attr 'number', defaultValue: 100 #µM
+  mip_concentration: DS.attr 'number', defaultValue: 5 #µM
   dna_sample_concentration: DS.attr 'number', defaultValue: 200 #ng/µL
 
-  sample_count: DS.attr 'number'
+  sample_count: DS.attr 'number', defaultValue: 16
 
-  phosphorylation_reaction_volume: DS.attr 'number', defaultValue: 100 #µL
+  phosphorylation_reaction_volume: DS.attr 'number', defaultValue: 200 #µL
 
-  mip_count: DS.attr 'number'
-  mip_volume: DS.attr 'number' #µL
+  mip_count: DS.attr 'number', defaultValue: 890
+  mip_volume: DS.attr 'number', defaultValue: 0.18 #µL
 
   dna_amount_per_reaction: DS.attr 'number', defaultValue: 100 #ng
   dna_amount_per_ng: 330

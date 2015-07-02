@@ -83,9 +83,9 @@ test 'serial dilutions are properly calculated', (assert) ->
     assert.equal serialDilutions[2].step, 3
     assert.equal serialDilutions[2].amount, 250
     assert.equal serialDilutions[2].dilution_from_previous, 50
-    assert.equal serialDilutions[2].probe_concentration, 0.001
-    assert.equal serialDilutions[2].mips_volume_required, 0.04237560192616372
-    assert.equal record1.get('serial_dilution.mips_volume_required'), 0.04237560192616372
+    assert.equal serialDilutions[2].probe_concentration, 0.000050
+    assert.equal serialDilutions[2].mips_volume_required, 0.8475120385232745
+    assert.equal record1.get('serial_dilution.mips_volume_required'), 0.8475120385232745
 
 test 'phosphorylation reaction volumes are properly calculated', (assert) ->
   expect 8

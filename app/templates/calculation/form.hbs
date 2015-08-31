@@ -2,7 +2,7 @@
   <div class="form-group">
     <label for="name">Name</label>
     {{input
-      value=name
+      value=model.name
       id='name'
       class='form-control'}}
   </div>
@@ -12,7 +12,7 @@
     {{input
       type='number'
       step=1
-      value=mip_concentration
+      value=model.mip_concentration
       id='mip_concentration'
       class='form-control'}}
   </div>
@@ -22,7 +22,7 @@
     {{input
       type='number'
       step=1
-      value=dna_sample_concentration
+      value=model.dna_sample_concentration
       id='dna_sample_concentration'
       class='form-control'}}
   </div>
@@ -32,7 +32,7 @@
     {{input
       type='number'
       step=1
-      value=sample_count
+      value=model.sample_count
       id='sample_count'
       class='form-control'}}
   </div>
@@ -43,7 +43,7 @@
       content=phosphorylation_reaction_volumes
       optionLabelPath='content.name'
       optionValuePath='content.value'
-      value=phosphorylation_reaction_volume
+      value=model.phosphorylation_reaction_volume
       id='phosphorylation_reaction_volume'
       class='form-control'}}
   </div>
@@ -53,7 +53,7 @@
     {{input
       type='number'
       step=1
-      value=mip_count
+      value=model.mip_count
       id='mip_count'
       class='form-control'}}
   </div>
@@ -63,7 +63,7 @@
     {{input
       type='number'
       step=0.01
-      value=mip_volume
+      value=model.mip_volume
       id='mip_volume'
       class='form-control'}}
   </div>
@@ -73,7 +73,7 @@
     {{input
       type='number'
       step=1
-      value=dna_amount_per_reaction
+      value=model.dna_amount_per_reaction
       id='dna_amount_per_reaction'
       class='form-control'}}
   </div>
@@ -83,7 +83,7 @@
     {{input
       type='number'
       disabled=true
-      value=mip_copy_count_required
+      value=model.mip_copy_count_required
       id='mip_copy_count_required'
       class='form-control'}}
   </div>
@@ -93,7 +93,7 @@
     {{input
       type='number'
       disabled=true
-      value=mips_amount_required
+      value=model.mips_amount_required
       id='mips_amount_required'
       class='form-control'}}
   </div>
@@ -103,7 +103,7 @@
     {{input
       type='number'
       disabled=true
-      value=probe_concentration
+      value=model.probe_concentration
       id='probe_concentration'
       class='form-control'}}
   </div>
@@ -111,10 +111,10 @@
   <div class="form-group">
     <label for="dilution">Dilution</label>
     {{view Ember.Select
-      content=serial_dilutions
+      content=model.serial_dilutions
       optionLabelPath='content.mips_volume_required'
       optionValuePath='content.amount'
-      value=dilution
+      value=model.dilution
       id='dilution'
       class='form-control'}}
   </div>

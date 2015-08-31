@@ -1,6 +1,6 @@
 `import Ember from 'ember'`
 
-CalculationFormController = Ember.ObjectController.extend
+CalculationFormController = Ember.Controller.extend
   phosphorylation_reaction_volumes: [
     name: 100
     value: 100

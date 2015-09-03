@@ -1,0 +1,32 @@
+tmp:
+  image: node:0.12.7
+  entrypoint: ['/bin/bash']
+  volumes:
+    - /src/.sass-cache
+    - /src/node_modules
+    - /src/bower_components
+    - /src/tmp
+default: &defaults
+  build: .
+  volumes:
+    - .:/src
+  volumes_from:
+    - tmp
+ember:
+  <<: *defaults
+bash:
+  <<: *defaults
+  entrypoint: ['/bin/bash']
+npm:
+  <<: *defaults
+  entrypoint: ['/usr/local/bin/npm', '--unsafe-perm']
+bower:
+  <<: *defaults
+  entrypoint: ['/usr/local/bin/bower', '--allow-root']
+server:
+  <<: *defaults
+  command: server --watcher polling
+  ports:
+    - "4200:4200"
+    - "35729:35729" # legacy ember live reload port
+    - "49152:49152" # ember 1.13.8 live reload port

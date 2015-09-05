@@ -1,6 +1,6 @@
 tmp:
   image: mhart/alpine-node:0.12.7
-  entrypoint: ['/bin/bash']
+  entrypoint: ['/bin/sh']
   volumes:
     - /ember-app/.sass-cache
     - /ember-app/node_modules
@@ -14,9 +14,6 @@ default: &defaults
     - tmp
 ember:
   <<: *defaults
-bash:
-  <<: *defaults
-  entrypoint: ['/bin/bash']
 npm:
   <<: *defaults
   entrypoint: ['/usr/bin/npm', '--unsafe-perm']

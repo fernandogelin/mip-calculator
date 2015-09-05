@@ -94,6 +94,8 @@ MipCaptureCalculation = DS.Model.extend
     @get('mip_capture_ampligase') * (@get('sample_count') + @get('master_mix_extra'))
   mip_capture_mix_water: Ember.computed 'mip_capture_water', 'sample_count', 'master_mix_extra', 'master_mix_extra', ->
     @get('mip_capture_water') * (@get('sample_count') + @get('master_mix_extra'))
+  mip_serial_dilution_amount_mix: Ember.computed 'serial_dilution.mips_volume_required', 'sample_count', 'master_mix_extra', ->
+    @get('serial_dilution.mips_volume_required') * (@get('sample_count') + @get('master_mix_extra'))
 
   # µL exonuclease treatment mix
   exo_treatment_exo1: 0.5

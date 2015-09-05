@@ -1,15 +1,15 @@
 tmp:
-  image: node:0.12.7
+  image: mhart/alpine-node:0.12.7
   entrypoint: ['/bin/bash']
   volumes:
-    - /src/.sass-cache
-    - /src/node_modules
-    - /src/bower_components
-    - /src/tmp
+    - /ember-app/.sass-cache
+    - /ember-app/node_modules
+    - /ember-app/bower_components
+    - /ember-app/tmp
 default: &defaults
   build: .
   volumes:
-    - .:/src
+    - .:/ember-app
   volumes_from:
     - tmp
 ember:
@@ -19,10 +19,10 @@ bash:
   entrypoint: ['/bin/bash']
 npm:
   <<: *defaults
-  entrypoint: ['/usr/local/bin/npm', '--unsafe-perm']
+  entrypoint: ['/usr/bin/npm', '--unsafe-perm']
 bower:
   <<: *defaults
-  entrypoint: ['/usr/local/bin/bower', '--allow-root']
+  entrypoint: ['/usr/bin/bower', '--allow-root']
 server:
   <<: *defaults
   command: server --watcher polling

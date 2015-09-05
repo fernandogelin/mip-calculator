@@ -1,0 +1,100 @@
+<h4>DNA Purification</h4>
+<div class="form-group">
+  <label for="pcr_product_volume">PCR Product Volume(µL)</label>
+  {{input
+    type='number'
+    disabled=false
+    value=model.pcr_product_volume
+    id='pcr_product_volume'
+    class='form-control'}}
+</div>
+<div>
+  <label for="purification_reaction">Purification Reaction</label>
+  <table class="table table-sm table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-right">Volume (µL)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-right">Total PCR Product</td>
+        <td class="text-mono text-right">{{model.pcr_product_pool_volume}}</td>
+      </tr>
+      <tr>
+        <td class="text-right">Ampure Beads</td>
+        <td class="text-mono text-right">{{model.ampure_beads_volume}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<h4>Library Dilution Calculation</h4>
+<div class="form-group">
+  <label for="dna_sample_concentration">DNA sample concentration (ng/µL)</label>
+  {{input
+    type='number'
+    step=1
+    value=model.dna_sample_concentration
+    id='dna_sample_concentration'
+    class='form-control'}}
+</div>
+<h5>Library concentration</h5>
+<div class="form-group">
+  <label for="sample_count">Qubit read</label>
+  {{input
+    type='number'
+    step=1
+    value=model.qubit_read
+    id='qubit_read'
+    class='form-control'}}
+</div>
+<h5>Library Dilution</h5>
+<div class="form-group">
+  <label for="library_concentration_required">Library Concentration Required (µM)</label>
+  {{input
+    type='number'
+    step=1
+    value=model.library_concentration_required
+    id='library_concentration_required'
+    class='form-control'}}
+</div>
+<div class="form-group">
+  <label for="library_mean_dna_size">Fragment DNA Mean Size</label>
+  {{input
+    type='number'
+    step=1
+    value=model.library_mean_dna_size
+    id='library_mean_dna_size'
+    class='form-control'}}
+</div>
+<div class="form-group">
+  <label for="library_volume_required">Library Volume Required</label>
+  {{input
+    type='number'
+    step=1
+    value=model.library_volume_required
+    id='library_volume_required'
+    class='form-control'}}
+</div>
+<div>
+  <label for="library_dilution">Library Dilution</label>
+  <table class="table table-sm table-bordered">
+    <thead>
+      <tr>
+        <th></th>
+        <th class="text-right">Volume (µL)</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td class="text-right">Library Amount</td>
+        <td class="text-mono text-right">{{model.dilution_library_volume}}</td>
+      </tr>
+      <tr>
+        <td class="text-right">Water</td>
+        <td class="text-mono text-right">{{model.dilution_water_volume}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

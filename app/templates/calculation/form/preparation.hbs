@@ -1,0 +1,37 @@
+<div class="form-group">
+  <label for="mip_copy_count_required">MIP copy count required</label>
+  {{input
+    type='number'
+    disabled=true
+    value=model.mip_copy_count_required
+    id='mip_copy_count_required'
+    class='form-control'}}
+</div>
+<div class="form-group">
+  <label for="mips_amount_required">MIP amount required (pmol)</label>
+  {{input
+    type='number'
+    disabled=true
+    value=model.mips_amount_required
+    id='mips_amount_required'
+    class='form-control'}}
+</div>
+<div class="form-group">
+  <label for="probe_concentration">Probe concentrarion (µM)</label>
+  {{input
+    type='number'
+    disabled=true
+    value=model.probe_concentration
+    id='probe_concentration'
+    class='form-control'}}
+</div>
+<div class="form-group">
+  <label for="dilution">Dilution</label>
+  {{view Ember.Select
+    content=model.serial_dilutions
+    optionLabelPath='content.mips_volume_required'
+    optionValuePath='content.amount'
+    value=model.dilution
+    id='dilution'
+    class='form-control c-select'}}
+</div>

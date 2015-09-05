@@ -1,27 +1,55 @@
-<div class="form-group">
-  <label for="mip_count">MIP count</label>
-  {{input
-    type='number'
-    step=1
-    value=model.mip_count
-    id='mip_count'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="mip_volume">MIP volume (µL)</label>
-  {{input
-    type='number'
-    step=0.01
-    value=model.mip_volume
-    id='mip_volume'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="dna_amount_per_reaction">DNA amount per reaction (ng)</label>
-  {{input
-    type='number'
-    step=1
-    value=model.dna_amount_per_reaction
-    id='dna_amount_per_reaction'
-    class='form-control'}}
-</div>
+<h3>Probes pooling and 5' phosphorylation</h3>
+<table class="table table-sm table-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="text-right">Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-right">Water</td>
+      <td class="text-mono text-right">{{model.phosphorylation_water_volume}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">MIPs Pool</td>
+      <td class="text-mono text-right">{{model.phosphorylation_mips_pool_volume}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">T4 Ligase Buffer 10X</td>
+      <td class="text-mono text-right">{{model.phosphorylation_t4_buffer_volume}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">T4 PNK</td>
+      <td class="text-mono text-right">{{model.phosphorylation_t4_pnk_volume}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<h3>MIP capture reaction</h3>
+<table class="table table-sm table-bordered">
+  <thead>
+    <tr>
+      <th></th>
+      <th class="text-right">Volume</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="text-right">Water</td>
+      <td class="text-mono text-right">{{model.phosphorylation_water_volume}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">MIPs Pool</td>
+      <td class="text-mono text-right">{{model.phosphorylation_mips_pool_volume}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">T4 Ligase Buffer 10X</td>
+      <td class="text-mono text-right">{{model.phosphorylation_t4_buffer_volume}}</td>
+    </tr>
+    <tr>
+      <td class="text-right">T4 PNK</td>
+      <td class="text-mono text-right">{{model.phosphorylation_t4_pnk_volume}}</td>
+    </tr>
+  </tbody>
+</table>

@@ -1,121 +1,128 @@
-<div class="form-group">
-  <label for="name">Name</label>
-  {{input
-    value=model.name
-    id='name'
-    class='form-control'}}
+<div class="row">
+  <div class="col-md-4">
+    <div class="form-group">
+      <label for="name">Name</label>
+      {{input
+        value=model.name
+        id='name'
+        class='form-control'}}
+    </div>
+    <h4>MIP and DNA concentration</h4>
+    <div class="form-group">
+      <label for="dna_sample_concentration">DNA sample concentration (ng/µL)</label>
+      {{input
+        type='number'
+        step=1
+        value=model.dna_sample_concentration
+        id='dna_sample_concentration'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="sample_count">Sample count</label>
+      {{input
+        type='number'
+        step=1
+        value=model.sample_count
+        id='sample_count'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="mip_concentration">MIP concentration (µM)</label>
+      {{input
+        type='number'
+        step=1
+        value=model.mip_concentration
+        id='mip_concentration'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="mip_count">MIP count</label>
+      {{input
+        type='number'
+        step=1
+        value=model.mip_count
+        id='mip_count'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="mip_count">Extra Master Mix</label>
+      {{input
+        type='number'
+        step=1
+        value=model.master_mix_extra
+        id='master_mix_extra'
+        class='form-control'}}
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h4>Phosphorylation reaction</h4>
+    <div class="form-group">
+      <label for="phosphorylation_reaction_volume">Phosphorylation reaction volume (µL)</label>
+      {{view Ember.Select
+        content=phosphorylation_reaction_volumes
+        optionLabelPath='content.name'
+        optionValuePath='content.value'
+        value=model.phosphorylation_reaction_volume
+        id='phosphorylation_reaction_volume'
+        class='form-control c-select'}}
+    </div>
+    <div class="form-group">
+      <label for="mip_volume">MIP volume (µL)</label>
+      {{input
+        type='number'
+        step=0.01
+        value=model.mip_volume
+        id='mip_volume'
+        class='form-control'}}
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h4>MIP Capture Reaction</h4>
+    <div class="form-group">
+      <label for="dna_amount_per_reaction">DNA amount per reaction (ng)</label>
+      {{input
+        type='number'
+        step=1
+        value=model.dna_amount_per_reaction
+        id='dna_amount_per_reaction'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="mip_copy_count_required">MIP copy count required</label>
+      {{input
+        type='number'
+        disabled=true
+        value=model.mip_copy_count_required
+        id='mip_copy_count_required'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="mips_amount_required">MIP amount required (pmol)</label>
+      {{input
+        type='number'
+        disabled=true
+        value=model.mips_amount_required
+        id='mips_amount_required'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="probe_concentration">Probe concentrarion (µM)</label>
+      {{input
+        type='number'
+        disabled=true
+        value=model.probe_concentration
+        id='probe_concentration'
+        class='form-control'}}
+    </div>
+    <div class="form-group">
+      <label for="dilution">Amount of Diluted MIP Solution (1,1:5 and 1:50)</label>
+      {{view Ember.Select
+        content=model.serial_dilutions
+        optionLabelPath='content.mips_volume_required'
+        optionValuePath='content.amount'
+        value=model.dilution
+        id='dilution'
+        class='form-control c-select'}}
+    </div>
+  </div>
 </div>
-<h4>MIP and DNA concentration</h4>
-<div class="form-group">
-  <label for="dna_sample_concentration">DNA sample concentration (ng/µL)</label>
-  {{input
-    type='number'
-    step=1
-    value=model.dna_sample_concentration
-    id='dna_sample_concentration'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="sample_count">Sample count</label>
-  {{input
-    type='number'
-    step=1
-    value=model.sample_count
-    id='sample_count'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="mip_concentration">MIP concentration (µM)</label>
-  {{input
-    type='number'
-    step=1
-    value=model.mip_concentration
-    id='mip_concentration'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="mip_count">MIP count</label>
-  {{input
-    type='number'
-    step=1
-    value=model.mip_count
-    id='mip_count'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="mip_count">Extra Master Mix</label>
-  {{input
-    type='number'
-    step=1
-    value=model.master_mix_extra
-    id='master_mix_extra'
-    class='form-control'}}
-</div>
-<h4>Phosphorylation reaction</h4>
-<div class="form-group">
-  <label for="phosphorylation_reaction_volume">Phosphorylation reaction volume (µL)</label>
-  {{view Ember.Select
-    content=phosphorylation_reaction_volumes
-    optionLabelPath='content.name'
-    optionValuePath='content.value'
-    value=model.phosphorylation_reaction_volume
-    id='phosphorylation_reaction_volume'
-    class='form-control c-select'}}
-</div>
-<div class="form-group">
-  <label for="mip_volume">MIP volume (µL)</label>
-  {{input
-    type='number'
-    step=0.01
-    value=model.mip_volume
-    id='mip_volume'
-    class='form-control'}}
-</div>
-<h4>MIP Capture Reaction</h4>
-<div class="form-group">
-  <label for="dna_amount_per_reaction">DNA amount per reaction (ng)</label>
-  {{input
-    type='number'
-    step=1
-    value=model.dna_amount_per_reaction
-    id='dna_amount_per_reaction'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="mip_copy_count_required">MIP copy count required</label>
-  {{input
-    type='number'
-    disabled=true
-    value=model.mip_copy_count_required
-    id='mip_copy_count_required'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="mips_amount_required">MIP amount required (pmol)</label>
-  {{input
-    type='number'
-    disabled=true
-    value=model.mips_amount_required
-    id='mips_amount_required'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="probe_concentration">Probe concentrarion (µM)</label>
-  {{input
-    type='number'
-    disabled=true
-    value=model.probe_concentration
-    id='probe_concentration'
-    class='form-control'}}
-</div>
-<div class="form-group">
-  <label for="dilution">Amount of Diluted MIP Solution (1,1:5 and 1:50)</label>
-  {{view Ember.Select
-    content=model.serial_dilutions
-    optionLabelPath='content.mips_volume_required'
-    optionValuePath='content.amount'
-    value=model.dilution
-    id='dilution'
-    class='form-control c-select'}}
-</div>
-

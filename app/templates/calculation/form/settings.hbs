@@ -118,13 +118,11 @@
     </div>
     <div class="form-group">
       <label for="dilution">Amount of Diluted MIP Solution (1,1:5 and 1:50)</label>
-      {{view Ember.Select
-        content=model.serial_dilutions
-        optionLabelPath='content.mips_volume_required'
-        optionValuePath='content.amount'
-        value=model.dilution
-        id='dilution'
-        class='form-control c-select'}}
+      {{#x-select value=model.dilution id='dilution' class='form-control c-select'}}
+        {{#each model.serial_dilutions as |dilution|}}
+          {{#x-option value=dilution.amount}}{{fixed-precision dilution.mips_volume_required 6}}{{/x-option}}
+        {{/each}}
+      {{/x-select}}
     </div>
   </div>
 </div>

@@ -1,202 +1,210 @@
-<h3>1. Probes pooling and 5' phosphorylation</h3>
+<div class="row">
+  <div class="col-md-4">
+    <h3>1. Probes pooling and 5' phosphorylation</h3>
 
-<p class="text-muted">Note: Plates and tubes should be always placed on ice during manipulation.</p>
+    <p class="text-muted">Note: Plates and tubes should be always placed on ice during manipulation.</p>
 
-<h4>Reaction Contents (µL)</h4>
-<table class="table table-sm table-bordered">
-  <thead>
-    <tr>
-      <th></th>
-      <th class="text-right">Volume</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td class="text-right">Water</td>
-      <td class="text-mono text-right">{{model.phosphorylation_water_volume}}</td>
-    </tr>
-    <tr>
-      <td class="text-right">MIPs Pool</td>
-      <td class="text-mono text-right">{{model.phosphorylation_mips_pool_volume}}</td>
-    </tr>
-    <tr>
-      <td class="text-right">T4 Ligase Buffer 10X</td>
-      <td class="text-mono text-right">{{model.phosphorylation_t4_buffer_volume}}</td>
-    </tr>
-    <tr>
-      <td class="text-right">T4 PNK</td>
-      <td class="text-mono text-right">{{model.phosphorylation_t4_pnk_volume}}</td>
-    </tr>
-  </tbody>
-</table>
-
-<ol>
-  <li>Remove MIP plates and let it thaw.</li>
-  <li>Vortex and centrifuge plate.</li>
-  <li>Add the amount specified on table above of each MIP to an eppendorf tube.</li>
-  <li>Add water.</li>
-  <li>Vortex and add T4 PNK.</li>
-  <li>Vortex and add T4 Ligase Buffer.</li>
-  <li>Vortex and centrifuge tube.</li>
-  <li>Transfer contents to a PCR tube. (May be split into 2 tubes, make sure to change the reaction volume on the thermocycler)</li>
-  <li>Incubate at 37 C for 45 min and then 65 C for 20 min.</li>
-</ol>
-
-<h3>2. MIP capture reaction</h3>
-<ol>
-  <li>Dilute phosphorylated MIPs to 1:5 and then again to 1:50. Take 10µL of the phosphorylated MIP product, add 40µL water. Then take 10µL of the 1:5 dilution and add 490µL water.</li>
-  <li>
-    Prepare the Master Mix.
-    <table class="table table-sm table-bordered">
-      <thead>
+    <h4>Reaction Contents (µL)</h4>
+    <table class="table table-sm">
+      <thead class="thead-inverse">
         <tr>
           <th></th>
-          <th class="text-right">Single</th>
-          <th class="text-right">Master Mix</th>
+          <th class="text-right">Volume</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td class="text-right">Ampligase 10x Buffer</td>
-          <td class="text-mono text-right">{{model.mip_capture_ampligase_buffer}}</td>
-          <td class="text-mono text-right">{{model.mip_capture_mix_ampligase_buffer}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">MIP Probes (diluted)</td>
-          <td class="text-mono text-right">{{model.serial_dilution.mips_volume_required}}</td>
-          <td class="text-mono text-right">{{model.mip_serial_dilution_amount_mix}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">dNTPs 0.25mM</td>
-          <td class="text-mono text-right">{{model.mip_capture_dntps}}</td>
-          <td class="text-mono text-right">{{model.mip_capture_mix_dntps}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">NEB Klentaq</td>
-          <td class="text-mono text-right">{{model.mip_capture_klentaq}}</td>
-          <td class="text-mono text-right">{{model.mip_capture_mix_klentaq}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">Ampligase (100 units/µL)</td>
-          <td class="text-mono text-right">{{model.mip_capture_ampligase}}</td>
-          <td class="text-mono text-right">{{model.mip_capture_mix_ampligase}}</td>
-        </tr>
         <tr>
           <td class="text-right">Water</td>
-          <td class="text-mono text-right">{{model.mip_capture_water}}</td>
-          <td class="text-mono text-right">{{model.mip_capture_mix_water}}</td>
+          <td class="text-mono text-right">{{model.phosphorylation_water_volume}}</td>
+        </tr>
+        <tr>
+          <td class="text-right">MIPs Pool</td>
+          <td class="text-mono text-right">{{model.phosphorylation_mips_pool_volume}}</td>
+        </tr>
+        <tr>
+          <td class="text-right">T4 Ligase Buffer 10X</td>
+          <td class="text-mono text-right">{{model.phosphorylation_t4_buffer_volume}}</td>
+        </tr>
+        <tr>
+          <td class="text-right">T4 PNK</td>
+          <td class="text-mono text-right">{{model.phosphorylation_t4_pnk_volume}}</td>
         </tr>
       </tbody>
     </table>
-  </li>
-  <li>
-    Add to Each Well
-    <table class="table table-sm table-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="text-right">µL</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-right">Master Mix</td>
-          <td class="text-mono text-right">{{model.mip_capture_reagents}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">hg DNA</td>
-          <td class="text-mono text-right">{{model.mip_capture_sample_dna}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>Incubate (95C 10min (lid: tracking 100C) 60C ~24-48 hours.</li>
-  <li>Cool plates on ice when taking them out of thermocycler.</li>
-</ol>
 
-<h3>3. Exonuclease Treatment</h3>
-<ol>
-  <li>
-    Prepare Exo Master mix.
-    <table class="table table-sm table-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="text-right">Single</th>
-          <th class="text-right">Master Mix</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-right">Exo I</td>
-          <td class="text-mono text-right">{{model.exo_treatment_exo1}}</td>
-          <td class="text-mono text-right">{{model.exo_treatment_mix_exo1}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">Exo III</td>
-          <td class="text-mono text-right">{{model.exo_treatment_exo3}}</td>
-          <td class="text-mono text-right">{{model.exo_treatment_mix_exo3}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">Ampligase Buffer 10X</td>
-          <td class="text-mono text-right">{{model.exo_treatment_ampligase_buffer}}</td>
-          <td class="text-mono text-right">{{model.exo_treatment_mix_ampligase_buffer}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">Water</td>
-          <td class="text-mono text-right">{{model.exo_treatment_water}}</td>
-          <td class="text-mono text-right">{{model.exo_treatment_mix_water}}</td>
-        </tr>
-      </tbody>
-    </table>
-  </li>
-  <li>Cool plates on ice when taking them out of thermocycler.</li>
-  <li>Add 2µL of the Master Mix to each well with mip capture reaction.</li>
-  <li>[Optional]. Aliquot into a plate or strip of 8 tubes and use multichannel to add to MIP reactions.</li>
-  <li>Incubate at 37C for 45min and 95C for 2min to inactivate the exo.</li>
-  <li>Set the timer for 47 min.</li>
-</ol>
+    <ol>
+      <li>Remove MIP plates and let it thaw.</li>
+      <li>Vortex and centrifuge plate.</li>
+      <li>Add the amount specified on table above of each MIP to an eppendorf tube.</li>
+      <li>Add water.</li>
+      <li>Vortex and add T4 PNK.</li>
+      <li>Vortex and add T4 Ligase Buffer.</li>
+      <li>Vortex and centrifuge tube.</li>
+      <li>Transfer contents to a PCR tube. (May be split into 2 tubes, make sure to change the reaction volume on the thermocycler)</li>
+      <li>Incubate at 37 C for 45 min and then 65 C for 20 min.</li>
+    </ol>
+  </div><!-- /.col -->
 
-<h3>4. Amplification of Capture Circles and Library Barcoding</h3>
-<ol>
-  <li>
-    Prepare PCR Master Mix
-    <table class="table table-sm table-bordered">
-      <thead>
-        <tr>
-          <th></th>
-          <th class="text-right">Single</th>
-          <th class="text-right">Master Mix</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td class="text-right">2X iProof (0.04units/µL)*</td>
-          <td class="text-mono text-right">{{model.pcr_barcoding_iproof}}</td>
-          <td class="text-mono text-right">{{model.pcr_barcoding_mix_iproof}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">F primer (100µM)</td>
-          <td class="text-mono text-right">{{model.pcr_barcoding_fprimer}}</td>
-          <td class="text-mono text-right">{{model.pcr_barcoding_mix_fprimer}}</td>
-        </tr>
-        <tr>
-          <td class="text-right">Water</td>
-          <td class="text-mono text-right">{{model.pcr_barcoding_water}}</td>
-          <td class="text-mono text-right">{{model.pcr_barcoding_mix_water}}</td>
-        </tr>
-      </tbody>
-      <tfoot>
-        <tr>
-          <td colspan="3">
-            <small class="text-muted">* 2X iProof: 20 parts of 5X iProof Buffer, 2 parts of 10mM dNTP mix, 1 part of iProof, 27 parts of water.</small>
-          </td>
-        </tr>
-      </tfoot>
-    </table>
-  </li>
-  <li>Add 1.25µL of R Barcode Primer (10µM) to each well.</li>
-  <li>Add 5µL of MIP capture reaction product to each well.</li>
-  <li>Incubate at 98°C for 30 s, ~20 cycles of 98°C for 10 s, 60°C for 30 s, 72°C for 30 s, and finally 72°C for 2 min.</li>
-  <li>Run a gel with a few samples. 2µL of PCR product and 8µL of water in each lane. 12µL of ladder</li>
-</ol>
+  <div class="col-md-4">
+    <h3>2. MIP capture reaction</h3>
+    <ol>
+      <li>Dilute phosphorylated MIPs to 1:5 and then again to 1:50. Take 10µL of the phosphorylated MIP product, add 40µL water. Then take 10µL of the 1:5 dilution and add 490µL water.</li>
+      <li>
+        Prepare the Master Mix.
+        <table class="table table-sm">
+          <thead class="thead-inverse">
+            <tr>
+              <th></th>
+              <th class="text-right">Single</th>
+              <th class="text-right">Master Mix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-right">Ampligase 10x Buffer</td>
+              <td class="text-mono text-right">{{model.mip_capture_ampligase_buffer}}</td>
+              <td class="text-mono text-right">{{model.mip_capture_mix_ampligase_buffer}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">MIP Probes (diluted)</td>
+              <td class="text-mono text-right">{{model.serial_dilution.mips_volume_required}}</td>
+              <td class="text-mono text-right">{{model.mip_serial_dilution_amount_mix}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">dNTPs 0.25mM</td>
+              <td class="text-mono text-right">{{model.mip_capture_dntps}}</td>
+              <td class="text-mono text-right">{{model.mip_capture_mix_dntps}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">NEB Klentaq</td>
+              <td class="text-mono text-right">{{model.mip_capture_klentaq}}</td>
+              <td class="text-mono text-right">{{model.mip_capture_mix_klentaq}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">Ampligase (100 units/µL)</td>
+              <td class="text-mono text-right">{{model.mip_capture_ampligase}}</td>
+              <td class="text-mono text-right">{{model.mip_capture_mix_ampligase}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">Water</td>
+              <td class="text-mono text-right">{{model.mip_capture_water}}</td>
+              <td class="text-mono text-right">{{model.mip_capture_mix_water}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>
+        Add to Each Well
+        <table class="table table-sm">
+          <thead class="thead-inverse">
+            <tr>
+              <th></th>
+              <th class="text-right">µL</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-right">Master Mix</td>
+              <td class="text-mono text-right">{{model.mip_capture_reagents}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">hg DNA</td>
+              <td class="text-mono text-right">{{model.mip_capture_sample_dna}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>Incubate (95C 10min (lid: tracking 100C) 60C ~24-48 hours.</li>
+      <li>Cool plates on ice when taking them out of thermocycler.</li>
+    </ol>
+  </div><!-- /.col -->
+
+  <div class="col-md-4">
+    <h3>3. Exonuclease Treatment</h3>
+    <ol>
+      <li>
+        Prepare Exo Master mix.
+        <table class="table table-sm">
+          <thead class="thead-inverse">
+            <tr>
+              <th></th>
+              <th class="text-right">Single</th>
+              <th class="text-right">Master Mix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-right">Exo I</td>
+              <td class="text-mono text-right">{{model.exo_treatment_exo1}}</td>
+              <td class="text-mono text-right">{{model.exo_treatment_mix_exo1}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">Exo III</td>
+              <td class="text-mono text-right">{{model.exo_treatment_exo3}}</td>
+              <td class="text-mono text-right">{{model.exo_treatment_mix_exo3}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">Ampligase Buffer 10X</td>
+              <td class="text-mono text-right">{{model.exo_treatment_ampligase_buffer}}</td>
+              <td class="text-mono text-right">{{model.exo_treatment_mix_ampligase_buffer}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">Water</td>
+              <td class="text-mono text-right">{{model.exo_treatment_water}}</td>
+              <td class="text-mono text-right">{{model.exo_treatment_mix_water}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </li>
+      <li>Cool plates on ice when taking them out of thermocycler.</li>
+      <li>Add 2µL of the Master Mix to each well with mip capture reaction.</li>
+      <li>[Optional]. Aliquot into a plate or strip of 8 tubes and use multichannel to add to MIP reactions.</li>
+      <li>Incubate at 37C for 45min and 95C for 2min to inactivate the exo.</li>
+      <li>Set the timer for 47 min.</li>
+    </ol>
+
+    <h3>4. Amplification of Capture Circles and Library Barcoding</h3>
+    <ol>
+      <li>
+        Prepare PCR Master Mix
+        <table class="table table-sm">
+          <thead class="thead-inverse">
+            <tr>
+              <th></th>
+              <th class="text-right">Single</th>
+              <th class="text-right">Master Mix</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="text-right">2X iProof (0.04units/µL)*</td>
+              <td class="text-mono text-right">{{model.pcr_barcoding_iproof}}</td>
+              <td class="text-mono text-right">{{model.pcr_barcoding_mix_iproof}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">F primer (100µM)</td>
+              <td class="text-mono text-right">{{model.pcr_barcoding_fprimer}}</td>
+              <td class="text-mono text-right">{{model.pcr_barcoding_mix_fprimer}}</td>
+            </tr>
+            <tr>
+              <td class="text-right">Water</td>
+              <td class="text-mono text-right">{{model.pcr_barcoding_water}}</td>
+              <td class="text-mono text-right">{{model.pcr_barcoding_mix_water}}</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr class="table-info text-center">
+              <td colspan="3">
+                <small>* 2X iProof: 20 parts of 5X iProof Buffer, 2 parts of 10mM dNTP mix, 1 part of iProof, 27 parts of water.</small>
+              </td>
+            </tr>
+          </tfoot>
+        </table>
+      </li>
+      <li>Add 1.25µL of R Barcode Primer (10µM) to each well.</li>
+      <li>Add 5µL of MIP capture reaction product to each well.</li>
+      <li>Incubate at 98°C for 30 s, ~20 cycles of 98°C for 10 s, 60°C for 30 s, 72°C for 30 s, and finally 72°C for 2 min.</li>
+      <li>Run a gel with a few samples. 2µL of PCR product and 8µL of water in each lane. 12µL of ladder</li>
+    </ol>
+  </div><!-- /.col -->
+</div><!-- /.row -->

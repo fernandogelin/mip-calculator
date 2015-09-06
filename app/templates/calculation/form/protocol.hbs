@@ -15,19 +15,19 @@
       <tbody>
         <tr>
           <td class="text-right">Water</td>
-          <td class="text-mono text-right">{{model.phosphorylation_water_volume}}</td>
+          <td class="text-mono text-right">{{fixed-precision model.phosphorylation_water_volume}}</td>
         </tr>
         <tr>
           <td class="text-right">MIPs Pool</td>
-          <td class="text-mono text-right">{{model.phosphorylation_mips_pool_volume}}</td>
+          <td class="text-mono text-right">{{fixed-precision model.phosphorylation_mips_pool_volume}}</td>
         </tr>
         <tr>
           <td class="text-right">T4 Ligase Buffer 10X</td>
-          <td class="text-mono text-right">{{model.phosphorylation_t4_buffer_volume}}</td>
+          <td class="text-mono text-right">{{fixed-precision model.phosphorylation_t4_buffer_volume}}</td>
         </tr>
         <tr>
           <td class="text-right">T4 PNK</td>
-          <td class="text-mono text-right">{{model.phosphorylation_t4_pnk_volume}}</td>
+          <td class="text-mono text-right">{{fixed-precision model.phosphorylation_t4_pnk_volume}}</td>
         </tr>
       </tbody>
     </table>
@@ -62,33 +62,33 @@
           <tbody>
             <tr>
               <td class="text-right">Ampligase 10x Buffer</td>
-              <td class="text-mono text-right">{{model.mip_capture_ampligase_buffer}}</td>
-              <td class="text-mono text-right">{{model.mip_capture_mix_ampligase_buffer}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_ampligase_buffer}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_mix_ampligase_buffer}}</td>
             </tr>
             <tr>
               <td class="text-right">MIP Probes (diluted)</td>
-              <td class="text-mono text-right">{{model.serial_dilution.mips_volume_required}}</td>
-              <td class="text-mono text-right">{{model.mip_serial_dilution_amount_mix}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.serial_dilution.mips_volume_required}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_serial_dilution_amount_mix}}</td>
             </tr>
             <tr>
               <td class="text-right">dNTPs 0.25mM</td>
-              <td class="text-mono text-right">{{model.mip_capture_dntps}}</td>
-              <td class="text-mono text-right">{{model.mip_capture_mix_dntps}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_dntps}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_mix_dntps}}</td>
             </tr>
             <tr>
               <td class="text-right">NEB Klentaq</td>
-              <td class="text-mono text-right">{{model.mip_capture_klentaq}}</td>
-              <td class="text-mono text-right">{{model.mip_capture_mix_klentaq}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_klentaq}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_mix_klentaq}}</td>
             </tr>
             <tr>
               <td class="text-right">Ampligase (100 units/µL)</td>
-              <td class="text-mono text-right">{{model.mip_capture_ampligase}}</td>
-              <td class="text-mono text-right">{{model.mip_capture_mix_ampligase}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_ampligase}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_mix_ampligase}}</td>
             </tr>
             <tr>
               <td class="text-right">Water</td>
-              <td class="text-mono text-right">{{model.mip_capture_water}}</td>
-              <td class="text-mono text-right">{{model.mip_capture_mix_water}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_water}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_mix_water}}</td>
             </tr>
           </tbody>
         </table>
@@ -105,11 +105,11 @@
           <tbody>
             <tr>
               <td class="text-right">Master Mix</td>
-              <td class="text-mono text-right">{{model.mip_capture_reagents}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_reagents}}</td>
             </tr>
             <tr>
               <td class="text-right">hg DNA</td>
-              <td class="text-mono text-right">{{model.mip_capture_sample_dna}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.mip_capture_sample_dna}}</td>
             </tr>
           </tbody>
         </table>
@@ -135,23 +135,23 @@
           <tbody>
             <tr>
               <td class="text-right">Exo I</td>
-              <td class="text-mono text-right">{{model.exo_treatment_exo1}}</td>
-              <td class="text-mono text-right">{{model.exo_treatment_mix_exo1}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_exo1}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_mix_exo1}}</td>
             </tr>
             <tr>
               <td class="text-right">Exo III</td>
-              <td class="text-mono text-right">{{model.exo_treatment_exo3}}</td>
-              <td class="text-mono text-right">{{model.exo_treatment_mix_exo3}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_exo3}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_mix_exo3}}</td>
             </tr>
             <tr>
               <td class="text-right">Ampligase Buffer 10X</td>
-              <td class="text-mono text-right">{{model.exo_treatment_ampligase_buffer}}</td>
-              <td class="text-mono text-right">{{model.exo_treatment_mix_ampligase_buffer}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_ampligase_buffer}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_mix_ampligase_buffer}}</td>
             </tr>
             <tr>
               <td class="text-right">Water</td>
-              <td class="text-mono text-right">{{model.exo_treatment_water}}</td>
-              <td class="text-mono text-right">{{model.exo_treatment_mix_water}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_water}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.exo_treatment_mix_water}}</td>
             </tr>
           </tbody>
         </table>
@@ -178,18 +178,18 @@
           <tbody>
             <tr>
               <td class="text-right">2X iProof (0.04units/µL)*</td>
-              <td class="text-mono text-right">{{model.pcr_barcoding_iproof}}</td>
-              <td class="text-mono text-right">{{model.pcr_barcoding_mix_iproof}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.pcr_barcoding_iproof}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.pcr_barcoding_mix_iproof}}</td>
             </tr>
             <tr>
               <td class="text-right">F primer (100µM)</td>
-              <td class="text-mono text-right">{{model.pcr_barcoding_fprimer}}</td>
-              <td class="text-mono text-right">{{model.pcr_barcoding_mix_fprimer}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.pcr_barcoding_fprimer}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.pcr_barcoding_mix_fprimer}}</td>
             </tr>
             <tr>
               <td class="text-right">Water</td>
-              <td class="text-mono text-right">{{model.pcr_barcoding_water}}</td>
-              <td class="text-mono text-right">{{model.pcr_barcoding_mix_water}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.pcr_barcoding_water}}</td>
+              <td class="text-mono text-right">{{fixed-precision model.pcr_barcoding_mix_water}}</td>
             </tr>
           </tbody>
           <tfoot>

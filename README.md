@@ -1,7 +1,9 @@
 # Mip-calculator
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+This app helps to create protocol for molecular inverse probes capture and related reactions. It takes inputs like number and concentration of samples, number and concentration of probes, desired volume of reactions, etc. It also includes a step for library preparation for Illumina sequencing.
+Mip-calculator is freely available [here](mip-calculator.s3-website-us-east-1.amazonaws.com).
+
 
 ## Prerequisites
 
